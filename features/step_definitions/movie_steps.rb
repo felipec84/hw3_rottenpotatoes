@@ -41,3 +41,6 @@ Then /^I should see all of the movies$/ do
   page.all('table#movies tbody tr').count.should == Movie.count
 end
 
+Then /^the director of "([^"]*)" should be "([^"]*)"/ do |title, director|
+  Movie.find_by_title(title).director ==  director
+end

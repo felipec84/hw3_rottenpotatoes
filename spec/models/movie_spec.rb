@@ -14,7 +14,11 @@ describe Movie do
       end
     end
     context 'we don\'t know the director' do
-      it 'should return empty array'
+      it 'should raise NoDirectorInfo' do
+        movie = FactoryGirl.create(:movie, :title => 'Milk', :director => nil)
+        lambda { movie.find_by_same_director() }.
+          should raise_error(Movie::NoDirectorInfo)
+      end
     end
   end
 end

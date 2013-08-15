@@ -10,7 +10,7 @@ describe Movie do
         dir1=[movie1, movie2]
         dir2=[movie3]
         movie1.find_by_same_director().should == dir1
-        movie2.find_by_same_director().should == dir2
+        movie3.find_by_same_director().should == dir2
       end
     end
     context 'we don\'t know the director' do
